@@ -5,8 +5,8 @@ import { Photo } from '../components/interfaces/Photo';
   providedIn: 'root'
 })
 export class PhotoService {
-  URI = 'http://localhost:4000/api/photos'
-
+  LOCAL = 'http://localhost:4000/api/photos'
+  EXTERNAL = 'https://angular-photo-gallery.herokuapp.com/'
   constructor(private http: HttpClient) { }
 
   createPhoto(title: string, description: string, photo: File) {
@@ -16,22 +16,22 @@ export class PhotoService {
     fd.append('description', description)
     fd.append('image', photo)
 
-    return this.http.post(this.URI, fd)
+    return this.http.post(this.EXTERNAL, fd)
   }
 
   getPhotos() {
-    return this.http.get<Photo[]>(this.URI)
+    return this.http.get<Photo[]>(this.EXTERNAL)
   }
 
   getPhoto(id: string) {
-    return this.http.get<Photo>(`${this.URI}/${id}`)
+    return this.http.get<Photo>(`${this.EXTERNAL}/${id}`)
   }
 
   deletePhoto(id: string) {
-    return this.http.delete(`${this.URI}/${id}`)
+    return this.http.delete(`${this.EXTERNAL}/${id}`)
   }
 
   updatePhoto(id: string, title: string, description: string) {
-    return this.http.put(`${this.URI}/${id}`, { title, description})
+    return this.http.put(`${this.EXTERNAL}/${id}`, { title, description})
   }
 }
