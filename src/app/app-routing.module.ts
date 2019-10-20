@@ -6,16 +6,16 @@ import { PhotoPreviewComponent } from './components/photo-preview/photo-preview.
 
 const routes: Routes = [
   { 
-    path: "photos", component: PhotoListComponent
+    path: "angular-photo-gallery/photos", component: PhotoListComponent
   },
   { 
-    path: "photos/new", component: PhotoFormComponent
+    path: "angular-photo-gallery/photos/new", component: PhotoFormComponent
   },
   { 
-    path: "photos/:id", component: PhotoPreviewComponent
+    path: "angular-photo-gallery/photos/:id", component: PhotoPreviewComponent
   },
   {
-    path: "", redirectTo: '/photos', pathMatch: 'full'
+    path: "", redirectTo: '/angular-photo-gallery/photos', pathMatch: 'full'
   }
 ];
 
